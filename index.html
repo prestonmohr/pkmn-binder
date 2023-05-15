@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pok&#233;mon Virtual Trading Card Binder</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css"></link>
+    </head>
+    <body onload="generateCardSetOptions()">
+        
+        <div class="content">
+            <div class="menu">
+                <h1><center>Pok&#233;mon Virtual Trading Card Binder</center></h1>
+                <label for="cardSet">Select a card set:</label>
+                <select id="cardSet" name="cardSet"></select><br><br>
+                
+                <label for="numPerPage">Number of cards per page:</label>
+                <select id="numPerPage" name="numPerPage">
+                    <option value="4">2x2</option>
+                    <option value="9">3x3</option>
+                    <option value="12" selected>3x4</option>
+                    <option value="16">4x4</option>
+                </select><br><br>
+                
+                <label for="rVariantDisplay">Display Parallel Set (Reverse Holos):</label>
+                <select id="rVariantDisplay" name="rVariantDisplay">
+                    <option value="noR" selected>No Parallel Cards</option>
+                    <option value="atEnd">Parallel Cards at End</option>
+                    <option value="interleaved">Parallel Cards Interleaved</option>
+                </select>
+            </div>
+            <div class="generate" onclick="generatePages()">
+                <h2>Generate Binder</h2>
+            </div>
+            <div class="options hide">
+                <div class="save-print" onclick="exportPDF()"><h4>Export Binder</h4></div>
+                <div class="save-print" onclick="window.print()"><h4>Print Binder</h4></div>
+                <div class="search">
+                    <form class="search-box">
+                        <input class="search-input" type="text" placeholder="###" oninput="formatInputValue(this)">
+                            <button class="search-btn" type="button" onclick="search()"></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="printable">
+                <div id="cardPages" class="cardPages"></div>
+            </div>
+            <div>
+                <p><center>Pok&#233;mon and its trademarks are &#169;1995-2023 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pok&#233;mon Company International, Inc.</center></p>
+                <p><center>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pok&#233;mon Company International, Inc.</center></p>
+            </div>
+        </div>
+    </body>
+</html>
