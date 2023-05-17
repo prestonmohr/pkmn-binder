@@ -1,1 +1,1 @@
-# pkmn-binder
+# The Pokémon Binder Companion
