@@ -13,6 +13,18 @@
     </head>
     <body onload="generateCardSetOptions()">
         
+        <div class="navigation-menu">
+            <img src="android-chrome-512x512.png" alt="PKMN Logo" class="logo">
+            <div class="pkmnbinder">
+                <a href="index.html">pkmnbinder</a>
+            </div>
+            <div class="nav-menu">
+              <a href="index.html">Home</a>
+              <a href="about.html">About</a>
+              <a href="buy.html">Buy</a>
+            </div>
+          </div>
+        
         <div class="content">
             <div class="menu">
                 <h1><center>Pok&#233;mon Virtual Trading Card Binder</center></h1>
@@ -39,7 +51,7 @@
             </div>
             <div class="options hide">
                 <div class="save-print" onclick="window.print()"><h4>Print Binder</h4></div>
-                <div class="save-print"><h4></h4></div>
+                <div class="save-print"><h4>Card Search --></h4></div>
                 <div class="search">
                     <form class="search-box">
                         <input class="search-input" type="text" placeholder="###" oninput="formatInputValue(this)">
@@ -51,10 +63,12 @@
             <div id="printable">
                 <div id="cardPages" class="cardPages"></div>
             </div>
-            <div>
-                <p><center>Pok&#233;mon and its trademarks are &#169;1995-2023 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pok&#233;mon Company International, Inc.</center></p>
-                <p><center>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pok&#233;mon Company International, Inc.</center></p>
-            </div>
         </div>
+        
+        <div class="text-section">
+            <p>Pok&#233;mon and its trademarks are &#169;1995-2024 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pok&#233;mon Company International, Inc.</p>
+            <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pok&#233;mon Company International, Inc.</p>
+        </div>
+
     </body>
 </html>
