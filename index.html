@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Pok&#233;mon Virtual Trading Card Binder</title>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9589606860210507"
              crossorigin="anonymous"></script>
@@ -39,13 +40,36 @@
                     <option value="16">4x4</option>
                 </select><br><br>
                 
-                <label for="rVariantDisplay">Display Parallel Set (Reverse Holos):</label>
+                <label for="startPosition">1st card starting position:</label>
+                <select id="startPosition" name="startPosition">
+                </select><br><br>
+                
+                <label for="rVariantDisplay">Display Reverse holos:</label>
                 <select id="rVariantDisplay" name="rVariantDisplay">
-                    <option value="noR" selected>No Parallel Cards</option>
-                    <option value="atEnd">Parallel Cards at End</option>
-                    <option value="interleaved">Parallel Cards Interleaved</option>
-                </select>
+                    <option value="noR" selected>No Reverse holo cards</option>
+                    <option value="atEnd">Reverse holo cards at end</option>
+                    <option value="interleaved">Reverse holo cards interleaved</option>
+                </select><br><br>
+                
+                <div id="pVariantContainer" class="hide">
+                    <label for="pVariantDisplay">Display Poké Ball holos:</label>
+                    <select id="pVariantDisplay" name="pVariantDisplay">
+                        <option value="noP" selected>No Poké Ball holos</option>
+                        <option value="atEnd">Poké Ball holos at end</option>
+                        <option value="interleaved">Poké Ball holos interleaved</option>
+                    </select><br><br>
+                </div>
+                
+                <div id="mVariantContainer" class="hide">
+                    <label for="mVariantDisplay">Display Master Ball holos:</label>
+                    <select id="mVariantDisplay" name="mVariantDisplay">
+                        <option value="noM" selected>No Master Ball holos</option>
+                        <option value="atEnd">Master Ball holos at end</option>
+                        <option value="interleaved">Master Ball holos interleaved</option>
+                    </select><br><br>
+                </div>
             </div>
+            
             <div class="generate" onclick="generatePages()">
                 <h2>Generate Binder</h2>
             </div>
@@ -66,8 +90,8 @@
         </div>
         
         <div class="text-section">
-            <p>Pok&#233;mon and its trademarks are &#169;1995-2024 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pok&#233;mon Company International, Inc.</p>
-            <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pok&#233;mon Company International, Inc.</p>
+            <p>Pokémon and its trademarks are &#169;1995-2025 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pokémon Company International, Inc.</p>
+            <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pokémon Company International, Inc.</p>
         </div>
 
     </body>
