@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pok&#233;mon Virtual Trading Card Binder</title>
+        <meta charset="UTF-8">
+        <title>Pokémon Virtual Trading Card Binder</title>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9589606860210507"
             crossorigin="anonymous"></script>
         <script defer src="script.js"></script>
@@ -11,7 +12,6 @@
                 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
                     <link rel="manifest" href="site.webmanifest">
                     </head>
-    <body onload="generateCardSetOptions()">
         
         <div class="navigation-menu">
             <img src="android-chrome-512x512.png" alt="PKMN Logo" class="logo">
@@ -28,50 +28,20 @@
         <div class="text-section">
             <p>pkmnbinder is a website I made to generate and visualize Pok&#233mon TCG Expansions in binder format. Generate binder pages in 2x2, 3x3, 3x4 or 4x4 format! Additionally, choose between interweaving the parallel set, tacking it on to the end, or not including it at all.</p>
             <p>The site currently supports the following sets:</p>
-            <ul>
-            <li>Scarlet & Violet - Prismatic Evolutions</li>
-            <li>Scarlet & Violet - Surging Sparks (SV08)</li>
-            <li>Scarlet & Violet - Stellar Crown (SV07)</li>
-            <li>Scarlet & Violet - Shrouded Fable</li>
-            <li>Scarlet & Violet - Twilight Masquerade (SV06)</li>
-            <li>Scarlet & Violet - Temporal Forces (SV05)</li>
-            <li>Scarlet & Violet - Paldean Fates</li>
-            <li>Scarlet & Violet - Paradox Rift (SV04)</li>
-            <li>Scarlet & Violet - 151</li>
-            <li>Scarlet & Violet - Obsidian Flames (SV03)</li>
-            <li>Scarlet & Violet - Paldea Evolved (SV02)</li>
-            <li>Scarlet & Violet (SV01)</li>
-            <li>Crown Zenith</li>
-            <li>Sword & Shield - Silver Tempest (SWSH12)</li>
-            <li>Sword & Shield - Lost Origin (SWSH11)</li>
-            <li>Pok&#233mon GO</li>
-            <li>Sword & Shield - Astral Radiance (SWSH10)</li>
-            <li>Sword & Shield - Brilliant Stars (SWSH09)</li>
-            <li>Sword & Shield - Fusion Strike (SWSH08)</li>
-            <li>Celebrations</li>
-            <li>Sword & Shield - Evolving Skies (SWSH07)</li>
-            <li>Sword & Shield - Chilling Reign (SWSH06)</li>
-            <li>Sword & Shield - Battle Styles (SWSH05)</li>
-            <li>Shining Fates</li>
-            <li>Sword & Shield - Vivid Voltage (SWSH04)</li>
-            <li>Champion's Path</li>
-            <li>Sword & Shield - Darkness Ablaze (SWSH03)</li>
-            <li>Sword & Shield - Rebel Clash (SWSH02)</li>
-            <li>Sword & Shield (SWSH01)</li>
-            <li>Sun & Moon - Cosmic Eclipse (SM12)</li>
-            <li>Hidden Fates</li>
-            <li>Sun & Moon - Unified Minds (SM11)</li>
-            <li>Sun & Moon - Unbroken Bonds (SM10)</li>
-            <li>Detective Pikachu</li>
-            <li>XY - Evolutions (XY12)</li>
-            </ul>
+            <ul id="setList"></ul>
             <p>Thank you for visiting my site!</p>
         </div>
         
         <div class="text-section">
-            <p>Pok&#233;mon and its trademarks are &#169;1995-2024 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pok&#233;mon Company International, Inc.</p>
-            <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pok&#233;mon Company International, Inc.</p>
+            <p>Pokémon and its trademarks are &#169;1995-2024 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pokémon Company International, Inc.</p>
+            <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pokémon Company International, Inc.</p>
         </div>
+        
+        <script>
+            window.onload = function() {
+                generateSetList();
+            };
+        </script>
         
     </body>
 </html>

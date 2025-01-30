@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pok&#233;mon Virtual Trading Card Binder</title>
+        <title>Pokémon Virtual Trading Card Binder</title>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9589606860210507"
              crossorigin="anonymous"></script>
         <script defer src="script.js"></script>
@@ -28,45 +28,61 @@
         
         <div class="content">
             <div class="menu">
-                <h1><center>Pok&#233;mon Virtual Trading Card Binder</center></h1>
-                <label for="cardSet">Select a card set:</label>
-                <select id="cardSet" name="cardSet"></select><br><br>
+                <h1><center>Pokémon Virtual Trading Card Binder</center></h1>
                 
-                <label for="numPerPage">Number of cards per page:</label>
+                <label for="cardSet">Card Set:</label>
+                <select id="cardSet" name="cardSet"></select>
+                <p class="option-description">Select the Pokémon card set you want to generate a binder layout for</p><br>
+                
+                <label for="numPerPage">Binder Page Size:</label>
                 <select id="numPerPage" name="numPerPage">
                     <option value="4">2x2</option>
                     <option value="9">3x3</option>
                     <option value="12" selected>3x4</option>
                     <option value="16">4x4</option>
-                </select><br><br>
+                </select>
+                <p class="option-description">Choose the number of cards per page in your binder</p><br>
                 
-                <label for="startPosition">1st card starting position:</label>
-                <select id="startPosition" name="startPosition">
-                </select><br><br>
-                
-                <label for="rVariantDisplay">Display Reverse holos:</label>
-                <select id="rVariantDisplay" name="rVariantDisplay">
-                    <option value="noR" selected>No Reverse holo cards</option>
-                    <option value="atEnd">Reverse holo cards at end</option>
-                    <option value="interleaved">Reverse holo cards interleaved</option>
-                </select><br><br>
-                
-                <div id="pVariantContainer" class="hide">
-                    <label for="pVariantDisplay">Display Poké Ball holos:</label>
-                    <select id="pVariantDisplay" name="pVariantDisplay">
-                        <option value="noP" selected>No Poké Ball holos</option>
-                        <option value="atEnd">Poké Ball holos at end</option>
-                        <option value="interleaved">Poké Ball holos interleaved</option>
-                    </select><br><br>
-                </div>
-                
-                <div id="mVariantContainer" class="hide">
-                    <label for="mVariantDisplay">Display Master Ball holos:</label>
-                    <select id="mVariantDisplay" name="mVariantDisplay">
-                        <option value="noM" selected>No Master Ball holos</option>
-                        <option value="atEnd">Master Ball holos at end</option>
-                        <option value="interleaved">Master Ball holos interleaved</option>
-                    </select><br><br>
+                <div class="advanced-options">
+                    <button class="advanced-options-toggle" onclick="toggleAdvancedOptions()">
+                        <span class="advanced-options-text">Advanced Options</span>
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="advanced-options-content hide">
+                        <label for="startPosition">1st card starting position offset:</label>
+                        <select id="startPosition" name="startPosition"></select>
+                        <p class="option-description">Set the starting position for the first card in the binder (Position 1 is default)</p><br>
+                        
+                        <div id="rVariantContainer" class="hide">
+                            <label for="rVariantDisplay">Display Reverse holos:</label>
+                            <select id="rVariantDisplay" name="rVariantDisplay">
+                                <option value="noR" selected>No Reverse holo cards</option>
+                                <option value="atEnd">Reverse holo cards at end</option>
+                                <option value="interleaved">Reverse holo cards interleaved</option>
+                            </select>
+                            <p class="option-description">Choose how to display reverse holo cards in your binder</p><br>
+                        </div>
+                        
+                        <div id="pVariantContainer" class="hide">
+                            <label for="pVariantDisplay">Display Poké Ball holos:</label>
+                            <select id="pVariantDisplay" name="pVariantDisplay">
+                                <option value="noP" selected>No Poké Ball holos</option>
+                                <option value="atEnd">Poké Ball holos at end</option>
+                                <option value="interleaved">Poké Ball holos interleaved</option>
+                            </select>
+                            <p class="option-description">Choose how to display Poké Ball holo cards in your binder</p><br>
+                        </div>
+                        
+                        <div id="mVariantContainer" class="hide">
+                            <label for="mVariantDisplay">Display Master Ball holos:</label>
+                            <select id="mVariantDisplay" name="mVariantDisplay">
+                                <option value="noM" selected>No Master Ball holos</option>
+                                <option value="atEnd">Master Ball holos at end</option>
+                                <option value="interleaved">Master Ball holos interleaved</option>
+                            </select>
+                            <p class="option-description">Choose how to display Master Ball holo cards in your binder</p><br>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -93,6 +109,25 @@
             <p>Pokémon and its trademarks are &#169;1995-2025 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pokémon Company International, Inc.</p>
             <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pokémon Company International, Inc.</p>
         </div>
+        
+        <script>
+            
+            document.getElementById("numPerPage").addEventListener("change", function() {
+                populateStartPositionOptions(); // Update startPosition options when numPerPage changes
+            });
+
+            document.getElementById("cardSet").addEventListener("change", function() {
+                updateVariantDropdowns(); // Call the function when the selection changes
+            });
+            
+            // Call populateStartPositionOptions on page load to initialize the dropdown
+            window.onload = function() {
+                generateCardSetOptions();
+                populateStartPositionOptions();
+                updateVariantDropdowns();
+            };
+        
+        </script>
 
     </body>
 </html>
