@@ -2,29 +2,29 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pokémon Virtual Trading Card Binder</title>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9589606860210507"
-             crossorigin="anonymous"></script>
-        <script defer src="script.js"></script>
-        <link rel="stylesheet" href="style.css"></link>
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
-    </head>
+            <title>Pokémon Virtual Trading Card Binder</title>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9589606860210507"
+                crossorigin="anonymous"></script>
+            <script defer src="script.js"></script>
+            <link rel="stylesheet" href="style.css"></link>
+            <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+                <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+                    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+                        <link rel="manifest" href="site.webmanifest">
+                        </head>
     <body onload="generateCardSetOptions()">
         
         <div class="navigation-menu">
             <img src="android-chrome-512x512.png" alt="PKMN Logo" class="logo">
-            <div class="pkmnbinder">
-                <a href="index.html">pkmnbinder</a>
-            </div>
-            <div class="nav-menu">
-              <a href="index.html">Home</a>
-              <a href="about.html">About</a>
-              <a href="buy.html">Buy</a>
-            </div>
-          </div>
+                <div class="pkmnbinder">
+                    <a href="index.html">pkmnbinder</a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="buy.html">Buy</a>
+                </div>
+        </div>
         
         <div class="content">
             <div class="menu">
@@ -54,7 +54,7 @@
                         <p class="option-description">Set the starting position for the first card in the binder (Position 1 is default)</p><br>
                         
                         <div id="rVariantContainer" class="hide">
-                            <label for="rVariantDisplay">Display Reverse holos</label>
+                            <label for="rVariantDisplay">Display Reverse holo cards</label>
                             <select id="rVariantDisplay" name="rVariantDisplay">
                                 <option value="noR" selected>No Reverse holo cards</option>
                                 <option value="atEnd">Reverse holo cards at end</option>
@@ -64,24 +64,34 @@
                         </div>
                         
                         <div id="pVariantContainer" class="hide">
-                            <label for="pVariantDisplay">Display Poké Ball holos</label>
+                            <label for="pVariantDisplay">Display Poké Ball holo cards</label>
                             <select id="pVariantDisplay" name="pVariantDisplay">
-                                <option value="noP" selected>No Poké Ball holos</option>
-                                <option value="atEnd">Poké Ball holos at end</option>
-                                <option value="interleaved">Poké Ball holos interleaved</option>
+                                <option value="noP" selected>No Poké Ball holo cards</option>
+                                <option value="atEnd">Poké Ball holo cards at end</option>
+                                <option value="interleaved">Poké Ball holo cards interleaved</option>
                             </select>
                             <p class="option-description">Choose how to display Poké Ball holo cards in your binder</p><br>
                         </div>
                         
                         <div id="mVariantContainer" class="hide">
-                            <label for="mVariantDisplay">Display Master Ball holos</label>
+                            <label for="mVariantDisplay">Display Master Ball holo cards</label>
                             <select id="mVariantDisplay" name="mVariantDisplay">
-                                <option value="noM" selected>No Master Ball holos</option>
-                                <option value="atEnd">Master Ball holos at end</option>
-                                <option value="interleaved">Master Ball holos interleaved</option>
+                                <option value="noM" selected>No Master Ball holo cards</option>
+                                <option value="atEnd">Master Ball holo cards at end</option>
+                                <option value="interleaved">Master Ball holo cards interleaved</option>
                             </select>
                             <p class="option-description">Choose how to display Master Ball holo cards in your binder</p><br>
                         </div>
+                        
+                        <div id="interleaveContainer" class="hide">
+                            <label for="interleaveHolos">Interleave parallel holo cards at end</label>
+                            <select id="interleaveHolos" name="interleaveHolos">
+                                <option value="no" selected>No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                            <p class="option-description">Interleave parallel sets when adding them at the end</p><br>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -112,10 +122,16 @@
         
         <script>
             
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('rVariantDisplay').addEventListener('change', checkInterleaveCondition);
+                document.getElementById('pVariantDisplay').addEventListener('change', checkInterleaveCondition);
+                document.getElementById('mVariantDisplay').addEventListener('change', checkInterleaveCondition);
+            });
+            
             document.getElementById("numPerPage").addEventListener("change", function() {
                 populateStartPositionOptions(); // Update startPosition options when numPerPage changes
             });
-
+            
             document.getElementById("cardSet").addEventListener("change", function() {
                 updateVariantDropdowns(); // Call the function when the selection changes
             });
@@ -126,8 +142,8 @@
                 populateStartPositionOptions();
                 updateVariantDropdowns();
             };
-        
+            
         </script>
-
+        
     </body>
 </html>
