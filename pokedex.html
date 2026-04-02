@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pokédex - Pokémon Virtual Trading Card Binder</title>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9589606860210507"
+            crossorigin="anonymous"></script>
+        <script defer src="pokedex.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+    </head>
+    <body>
+
+        <div class="navigation-menu">
+            <img src="android-chrome-512x512.png" alt="PKMN Logo" class="logo">
+            <div class="pkmnbinder">
+                <a href="index.html">pkmnbinder</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="pokedex.html">Dex</a>
+                <a href="about.html">About</a>
+                <a href="buy.html">Buy</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="menu">
+                <h1><center>Pokémon Virtual Pokédex Binder</center></h1>
+
+                <label for="genSelect">Generation</label>
+                <select id="genSelect" name="genSelect"></select>
+                <p class="option-description">Select the Pokémon generation you want to generate a binder layout for (full Pokédex is selected by default)</p><br>
+
+                <div class="advanced-options">
+                    <button class="advanced-options-toggle" onclick="toggleAdvancedOptions()">
+                        <span class="advanced-options-text">Advanced Options</span>
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="advanced-options-content hide">
+                        <label for="numPerPage">Pokémon per Page</label>
+                        <select id="numPerPage" name="numPerPage">
+                            <option value="4">2x2 (4 / page)</option>
+                            <option value="9">3x3 (9 / page)</option>
+                            <option value="12" selected>3x4 (12 / page)</option>
+                            <option value="16">4x4 (16 / page)</option>
+                        </select>
+                        <p class="option-description">Choose how many Pokémon to show per page</p><br>
+
+                        <label for="startPosition">1st Pokémon starting position offset</label>
+                        <select id="startPosition" name="startPosition"></select>
+                        <p class="option-description">Set the starting position for the first Pokémon (Position 1 is default)</p><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="generate" onclick="generatePokedex()">
+                <h2>Generate Pokédex</h2>
+            </div>
+
+            <div class="options hide">
+                <div class="save-print" onclick="window.print()"><h4>Print Pokédex</h4></div>
+                <div class="search">
+                    <form class="search-box">
+                        <input class="search-input" type="text" placeholder="###" oninput="formatDexInput(this)">
+                        <button class="search-btn" type="button" onclick="searchDex()"></button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="printable">
+                <div id="pokedexPages" class="cardPages"></div>
+            </div>
+        </div>
+
+        <div class="text-section">
+            <p>Pokémon and its trademarks are &#169;1995-2026 Nintendo, Creatures, and GAMEFREAK. Related media appearing on this site are the property of The Pokémon Company International, Inc.</p>
+            <p>This is an unofficial site produced by Luma, who is neither affiliated with nor endorsed by Nintendo, Creatures, GAMEFREAK, or The Pokémon Company International, Inc.</p>
+        </div>
+
+        <script>
+            document.getElementById("numPerPage").addEventListener("change", function () {
+                populateStartPositionOptions();
+            });
+
+            window.onload = function () {
+                generateGenOptions();
+                populateStartPositionOptions();
+            };
+        </script>
+
+    </body>
+</html>

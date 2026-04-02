@@ -151,7 +151,7 @@ function generatePages() {
     
     // Add blank cards before the starting position
     for (var i = 1; i < startPosition; i++) {
-        imageNames.push("images/000/000.png");
+        imageNames.push("images/000/000_blank.png");
     }
     
     // Generate card images based on rVariantDisplay, pVariantDisplay, and mVariantDisplay
@@ -224,7 +224,7 @@ function generatePages() {
     // Add blank cards to fill the last page if necessary
     if (potentialNumCardsDiff > 0) {
         for (var i = 1; i <= potentialNumCardsDiff; i++) {
-            imageNames.push("images/000/000.png");
+            imageNames.push("images/000/000_blank.png");
         }
         totalCards = imageNames.length;
     }
